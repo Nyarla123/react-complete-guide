@@ -14,14 +14,16 @@ const ExpenseItem = ({ title, date, amount }) => {
   console.log(title);
 
   return (
-      <Card className="expense-item">
-        <ExpenseDate date={date}/>
-        <div className="expense-item__description">
-          <h2>{titles}</h2>
-        </div>
-        <div className="expense-item__price">{amount}</div>
-        <button onClick={clickHandler}>Change Title</button>
-      </Card>
+      <li>
+        <Card className="expense-item">
+          <ExpenseDate date={date}/>
+          <div className="expense-item__description">
+            <h2>{titles}</h2>
+          </div>
+          <div className="expense-item__price">{amount}</div>
+          <button onClick={clickHandler}>Change Title</button>
+        </Card>
+      </li>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import '../../styles/ExpenseForm.css'
 
-const ExpenseForm = ({onSaveExpenseData}) => {
+const ExpenseForm = ({onSaveExpenseData, onCancel}) => {
 
     const [enteredtitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
@@ -44,7 +44,7 @@ const ExpenseForm = ({onSaveExpenseData}) => {
         e.preventDefault();
         const expenseData = {
             title: enteredtitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date : new Date(enteredDate)
         };
         //console.log(expenseData);
@@ -54,8 +54,7 @@ const ExpenseForm = ({onSaveExpenseData}) => {
         setEnteredDate('');
     };
 
-
-    return (
+    return (    
         <form onSubmit={sumbitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
@@ -88,6 +87,7 @@ const ExpenseForm = ({onSaveExpenseData}) => {
                 </div>
             </div>
             <div className="new-expense__actions">
+                <button type="button" onClick={onCancel}>Cancel</button>
                 <button type="sumbit">Add Expense</button>
             </div>
         </form>
